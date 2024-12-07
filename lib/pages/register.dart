@@ -1,8 +1,11 @@
 import 'package:app/colors/colors.dart';
 import 'package:app/components/footer.dart';
+import 'package:app/pages/sms_verification.dart';
 import 'package:app/widgets/circle_button_widget.dart';
 import 'package:app/widgets/text_field_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:page_animation_transition/animations/fade_animation_transition.dart';
+import 'package:page_animation_transition/page_animation_transition.dart';
 
 class Register extends StatelessWidget {
   const Register({super.key});
@@ -67,7 +70,11 @@ class Register extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  LoginFab(onPressed: () {}),
+                  LoginFab(onPressed: () {
+                    Navigator.of(context).push(PageAnimationTransition(
+                        page: const SmsVerificationPage(),
+                        pageAnimationType: FadeAnimationTransition()));
+                  }),
                 ],
               ),
             ),

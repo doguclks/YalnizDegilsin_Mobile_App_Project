@@ -1,6 +1,7 @@
 import 'package:app/colors/colors.dart';
 import 'package:app/pages/how_to_use_screen.dart';
 import 'package:app/pages/login.dart';
+import 'package:app/pages/sms_verification.dart';
 import 'package:app/pages/splash_screen_1.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +24,9 @@ class MyApp extends StatelessWidget {
             iconTheme: IconThemeData(color: AppColors.textColor)),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         scaffoldBackgroundColor: Colors.black,
+        inputDecorationTheme: InputDecorationTheme(
+            labelStyle: TextStyle(color: AppColors.textColor),
+            hintStyle: TextStyle(color: Colors.grey)),
         useMaterial3: true,
       ),
       home: SplashScreen(),

@@ -1,3 +1,4 @@
+import 'package:app/colors/colors.dart';
 import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatefulWidget {
@@ -22,6 +23,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      style: TextStyle(color: AppColors.textColor),
       keyboardType: widget.keyboardType,
       obscureText: widget.isPassword ? _obscureText : false,
       decoration: InputDecoration(

@@ -1,4 +1,5 @@
 import 'package:app/pages/login.dart';
+import 'package:app/widgets/elevated_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:page_animation_transition/animations/fade_animation_transition.dart';
 import 'package:page_animation_transition/page_animation_transition.dart';
@@ -49,28 +50,7 @@ class WhyPhoneNumberScreen extends StatelessWidget {
                 ),
               ),
               // Devam Butonu
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFF39C12), // Turuncu
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30), // Yuvarlak köşeler
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.of(context).push(PageAnimationTransition(
-                      page: Login(),
-                      pageAnimationType:
-                          FadeAnimationTransition())); // Replace with your next screen
-                },
-                child: Text(
-                  "Devam Et",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black, // Turuncu düğme üzerindeki yazı: Siyah
-                  ),
-                ),
-              ),
+              ElevatedButtonWidget(buttonText: "Devam", nextPage: Login())
             ],
           ),
         ),

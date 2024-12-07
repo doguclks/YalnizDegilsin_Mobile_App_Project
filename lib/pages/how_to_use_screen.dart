@@ -1,5 +1,6 @@
 import 'package:app/pages/login.dart';
 import 'package:app/pages/wyh_phonenumber.dart';
+import 'package:app/widgets/elevated_button_widget.dart';
 import 'package:flutter/material.dart';
 
 class HowToUseScreen extends StatelessWidget {
@@ -48,30 +49,8 @@ class HowToUseScreen extends StatelessWidget {
                 ),
               ),
               // Devam Butonu
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFF39C12), // Turuncu
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30), // Yuvarlak köşeler
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            WhyPhoneNumberScreen()), // Replace with your next screen
-                  );
-                },
-                child: Text(
-                  "Anladım",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black, // Turuncu düğme üzerindeki yazı: Siyah
-                  ),
-                ),
-              ),
+              ElevatedButtonWidget(
+                  buttonText: "Anladım", nextPage: WhyPhoneNumberScreen())
             ],
           ),
         ),
