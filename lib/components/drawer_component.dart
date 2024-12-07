@@ -1,3 +1,4 @@
+import 'package:app/colors/colors.dart';
 import 'package:flutter/material.dart';
 
 class DrawerComponent extends StatelessWidget {
@@ -8,18 +9,22 @@ class DrawerComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: AppColors.backgroundColor,
       child: ListView(
         children: [
           const SizedBox(
             height: 50,
           ),
           ListTile(
-            title: const Icon(Icons.settings),
+            title: const Icon(
+              Icons.settings,
+              color: AppColors.buttonColor,
+            ),
             onTap: () {},
           ),
-          EmptyBox(),
+          emptyBox(),
           ListTile(
-            title: Icon(Icons.person),
+            title: Icon(Icons.person, color: AppColors.buttonColor),
             onTap: () {},
           ),
         ],
@@ -27,5 +32,5 @@ class DrawerComponent extends StatelessWidget {
     );
   }
 
-  SizedBox EmptyBox() => SizedBox(height: 30);
+  SizedBox emptyBox() => SizedBox(height: 30);
 }

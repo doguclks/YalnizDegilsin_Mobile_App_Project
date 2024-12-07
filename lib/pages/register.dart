@@ -1,3 +1,4 @@
+import 'package:app/colors/colors.dart';
 import 'package:app/components/footer.dart';
 import 'package:app/widgets/circle_button_widget.dart';
 import 'package:app/widgets/text_field_widget.dart';
@@ -92,7 +93,7 @@ class RegisterText extends StatelessWidget {
     return Text(
       headingTitle,
       style: TextStyle(
-        color: Colors.deepOrange,
+        color: AppColors.primaryColor,
         fontWeight: FontWeight.bold,
         fontSize: fontsize,
       ),

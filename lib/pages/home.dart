@@ -1,3 +1,4 @@
+import 'package:app/colors/colors.dart';
 import 'package:app/components/drawer_component.dart';
 import 'package:app/widgets/audio_button_widget.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,8 @@ class HomePage extends StatelessWidget {
         title: Center(
             child: Text(
           appBarText,
-          style: const TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(
+              fontWeight: FontWeight.bold, color: AppColors.textColor),
         )),
       ),
       drawer: DrawerComponent(),
@@ -28,7 +30,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height / 6,
+              height: MediaQuery.of(context).size.height / 2,
             ),
             SizedBox(
               height: 30,

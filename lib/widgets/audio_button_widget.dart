@@ -1,3 +1,4 @@
+import 'package:app/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -40,7 +41,7 @@ class _AudioButtonState extends State<AudioButton>
         width: MediaQuery.of(context).size.width / 2, // Buton genişliği
         height: 60, // Buton yüksekliği
         decoration: BoxDecoration(
-          color: isRecording ? Colors.red : Colors.red,
+          color: isRecording ? AppColors.buttonColor : AppColors.buttonColor,
           borderRadius: BorderRadius.circular(12),
         ),
         child: isRecording

@@ -1,4 +1,7 @@
+import 'package:app/colors/colors.dart';
+import 'package:app/pages/how_to_use_screen.dart';
 import 'package:app/pages/login.dart';
+import 'package:app/pages/splash_screen_1.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,10 +18,14 @@ class MyApp extends StatelessWidget {
       title: 'Yalnız Değilsin!',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+            color: Colors.black,
+            iconTheme: IconThemeData(color: AppColors.textColor)),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+        scaffoldBackgroundColor: Colors.black,
         useMaterial3: true,
       ),
-      home: Login(),
+      home: SplashScreen(),
     );
   }
 }

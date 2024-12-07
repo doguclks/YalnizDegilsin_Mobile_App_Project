@@ -1,3 +1,4 @@
+import 'package:app/colors/colors.dart'; // Renk paleti importu
 import 'package:app/components/footer.dart';
 import 'package:app/pages/home.dart';
 import 'package:app/pages/register.dart';
@@ -62,15 +63,21 @@ class Login extends StatelessWidget {
               children: [
                 Container(
                   alignment: Alignment.center,
-                  child: Text(subtitle),
+                  child: Text(
+                    subtitle,
+                    style: TextStyle(
+                      color: AppColors.textColor, // Beyaz metin
+                    ),
+                  ),
                 ),
                 Container(
                   alignment: Alignment.center,
                   child: InkWell(
-                    child: const Text(
+                    child: Text(
                       ' Kayıt ol!',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
+                        color: AppColors.primaryColor, // Turuncu renk
                       ),
                     ),
                     onTap: () {
@@ -120,7 +127,7 @@ class LoginText extends StatelessWidget {
     return Text(
       headingTitle,
       style: TextStyle(
-        color: Colors.deepOrange,
+        color: AppColors.primaryColor, // Turuncu renk
         fontWeight: FontWeight.bold,
         fontSize: fontsize,
       ),
