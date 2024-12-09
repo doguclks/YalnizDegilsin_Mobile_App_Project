@@ -50,7 +50,7 @@ class HowToUseScreen extends StatelessWidget {
               ),
               // Devam Butonu
               ElevatedButtonWidget(
-                  buttonText: "Anladım", nextPage: WhyPhoneNumberScreen())
+                  buttonText: "Devam", nextPage: WhyPhoneNumberScreen())
             ],
           ),
         ),
