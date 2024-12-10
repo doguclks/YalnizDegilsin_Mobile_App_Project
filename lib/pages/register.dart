@@ -1,6 +1,7 @@
 import 'package:app/colors/colors.dart';
 import 'package:app/components/footer.dart';
 import 'package:app/pages/sms_verification.dart';
+import 'package:app/services/register_w_phoneNumber.dart';
 import 'package:app/widgets/circle_button_widget.dart';
 import 'package:app/widgets/text_field_widget.dart';
 import 'package:flutter/material.dart';
@@ -8,13 +9,36 @@ import 'package:page_animation_transition/animations/fade_animation_transition.d
 import 'package:page_animation_transition/page_animation_transition.dart';
 
 class Register extends StatelessWidget {
-  const Register({super.key});
+  Register({super.key});
   final String headingTitle = "Kayıt Ol";
 
   @override
   Widget build(BuildContext context) {
+    // TextEditing Degiskenleri
+
+    final TextEditingController _nameController = TextEditingController();
+    final TextEditingController _surnameController = TextEditingController();
+    final TextEditingController _phoneNumberController =
+        TextEditingController();
+    final TextEditingController _passwordController = TextEditingController();
+
+    // Firebase degiskenleri
+
+    String? vericiationId;
+
+    // Size degiskenleri
+
     final double height = MediaQuery.of(context).size.height;
     final double footerHeight = height * 0.1;
+
+    // Kayıt olma fonksiyonu
+    Future<void> registerUser() async {
+      String phone = _phoneNumberController.text.trim();
+      String password = _passwordController.text.trim();
+      String? verificationId = await registerWithPhoneNumber(phone, password);
+    }
+
+    // Kayıt olma sayfası
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -38,41 +62,52 @@ class Register extends StatelessWidget {
             const SizedBox(
               height: 50,
             ),
-            const Padding(
-              padding:
-                  EdgeInsets.only(top: 20, left: 30, right: 30, bottom: 20),
+            Padding(
+              padding: EdgeInsets.only(left: 30, right: 30, bottom: 20),
               child: TextFieldWidget(
-                hintText: 'Email',
-                keyboardType: TextInputType.emailAddress,
-              ),
+                  hintText: 'Ad',
+                  keyboardType: TextInputType.text,
+                  controller: _nameController),
             ),
-            const Padding(
-              padding:
-                  EdgeInsets.only(top: 20, left: 30, right: 30, bottom: 20),
+            EmptyBox(),
+            Padding(
+              padding: EdgeInsets.only(left: 30, right: 30, bottom: 20),
               child: TextFieldWidget(
+                  hintText: 'Soyad',
+                  keyboardType: TextInputType.text,
+                  controller: _surnameController),
+            ),
+            EmptyBox(),
+            Padding(
+              padding: EdgeInsets.only(left: 30, right: 30, bottom: 20),
+              child: TextFieldWidget(
+                  controller: _phoneNumberController,
+                  hintText: 'Telefon Numarası',
+                  keyboardType: TextInputType.phone),
+            ),
+            EmptyBox(),
+            Padding(
+              padding: EdgeInsets.only(left: 30, right: 30, bottom: 20),
+              child: TextFieldWidget(
+                controller: _passwordController,
                 hintText: 'Şifre',
                 keyboardType: TextInputType.text,
                 isPassword: true,
               ),
             ),
-            const SizedBox(height: 20),
-            const Padding(
-              padding: EdgeInsets.only(left: 30, right: 30, bottom: 20),
-              child: TextFieldWidget(
-                  hintText: 'Telefon Numarası',
-                  keyboardType: TextInputType.phone),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
+            EmptyBox(),
+            EmptyBox(),
             Padding(
               padding: const EdgeInsets.only(right: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   LoginFab(onPressed: () {
+                    registerUser();
                     Navigator.of(context).push(PageAnimationTransition(
-                        page: const SmsVerificationPage(),
+                        page: SmsVerificationPage(
+                          verificationId: vericiationId!,
+                        ),
                         pageAnimationType: FadeAnimationTransition()));
                   }),
                 ],
@@ -86,8 +121,13 @@ class Register extends StatelessWidget {
       ),
     );
   }
+
+  SizedBox EmptyBox() => SizedBox(
+        height: 20,
+      );
 }
 
+// Kayıt olma text widget'ı
 class RegisterText extends StatelessWidget {
   const RegisterText(
       {super.key, required this.headingTitle, required this.fontsize});

@@ -6,12 +6,14 @@ class TextFieldWidget extends StatefulWidget {
     super.key,
     required this.hintText,
     required this.keyboardType,
+    required this.controller,
     this.isPassword = false,
   });
 
   final String hintText;
   final TextInputType keyboardType;
   final bool isPassword;
+  final TextEditingController? controller;
 
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
@@ -23,6 +25,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: widget.controller,
       style: TextStyle(color: AppColors.textColor),
       keyboardType: widget.keyboardType,
       obscureText: widget.isPassword ? _obscureText : false,

@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
             color: Colors.black,
             iconTheme: IconThemeData(color: AppColors.textColor)),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
         scaffoldBackgroundColor: Colors.black,
         inputDecorationTheme: InputDecorationTheme(
             labelStyle: TextStyle(color: AppColors.textColor),

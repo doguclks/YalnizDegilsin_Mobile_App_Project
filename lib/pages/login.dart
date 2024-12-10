@@ -9,10 +9,12 @@ import 'package:page_animation_transition/animations/fade_animation_transition.d
 import 'package:page_animation_transition/page_animation_transition.dart';
 
 class Login extends StatelessWidget {
-  const Login({super.key});
+  Login({super.key});
   final String headingTitle = "Hoşgeldiniz";
   final String subtitle = "Hesabınız yok mu ?";
 
+  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -40,18 +42,20 @@ class Login extends StatelessWidget {
             const SizedBox(
               height: 50,
             ),
-            const Padding(
+            Padding(
               padding:
                   EdgeInsets.only(top: 20, left: 30, right: 30, bottom: 20),
               child: TextFieldWidget(
-                hintText: 'Email',
-                keyboardType: TextInputType.emailAddress,
+                controller: _phoneNumberController,
+                hintText: 'Telefon Numarası',
+                keyboardType: TextInputType.phone,
               ),
             ),
-            const Padding(
+            Padding(
               padding:
                   EdgeInsets.only(top: 20, left: 30, right: 30, bottom: 20),
               child: TextFieldWidget(
+                controller: _passwordController,
                 hintText: 'Şifre',
                 keyboardType: TextInputType.text,
                 isPassword: true,
@@ -82,7 +86,7 @@ class Login extends StatelessWidget {
                     ),
                     onTap: () {
                       Navigator.of(context).push(PageAnimationTransition(
-                          page: const Register(),
+                          page: Register(),
                           pageAnimationType: FadeAnimationTransition()));
                     },
                   ),
