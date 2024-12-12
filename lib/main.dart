@@ -1,5 +1,6 @@
 import 'package:app/colors/colors.dart';
 import 'package:app/firebase_options.dart';
+import 'package:app/pages/home.dart';
 import 'package:app/pages/how_to_use_screen.dart';
 import 'package:app/pages/login.dart';
 import 'package:app/pages/sms_verification.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
             hintStyle: TextStyle(color: Colors.grey)),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      home: HomePage(),
     );
   }
 }
