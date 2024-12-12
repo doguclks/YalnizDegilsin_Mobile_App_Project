@@ -1,4 +1,5 @@
 import 'package:app/colors/colors.dart';
+import 'package:app/functions/record_functions.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -33,6 +34,7 @@ class _AudioButtonState extends State<AudioButton>
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        startRecording();
         setState(() {
           isRecording = !isRecording;
         });
@@ -45,15 +47,7 @@ class _AudioButtonState extends State<AudioButton>
           borderRadius: BorderRadius.circular(12),
         ),
         child: isRecording
-            ? AnimatedBuilder(
-                animation: _controller,
-                builder: (context, child) {
-                  return CustomPaint(
-                    painter: WavePainter(_controller.value),
-                    child: const SizedBox.expand(),
-                  );
-                },
-              )
+            ? Icon(Icons.stop)
             : const Icon(
                 Icons.mic,
                 color: Colors.white,
