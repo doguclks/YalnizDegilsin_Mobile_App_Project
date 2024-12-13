@@ -1,10 +1,6 @@
 import 'package:app/colors/colors.dart';
 import 'package:app/firebase_options.dart';
 import 'package:app/pages/home.dart';
-import 'package:app/pages/how_to_use_screen.dart';
-import 'package:app/pages/login.dart';
-import 'package:app/pages/sms_verification.dart';
-import 'package:app/pages/splash_screen_1.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

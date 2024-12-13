@@ -1,5 +1,6 @@
 import 'package:app/colors/colors.dart';
 import 'package:app/components/drawer_component.dart';
+import 'package:app/functions/location_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
@@ -21,6 +22,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     speech = stt.SpeechToText();
+    requestLocationPermission();
   }
 
   void startRecording() async {
@@ -103,6 +105,10 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   if (isRecording) {
                     stopRecording();
+                    getCurrentLocation().then((position) {
+                      print(
+                          "Konum: ${position.latitude}, ${position.longitude}");
+                    });
                   } else {
                     startRecording();
                   }

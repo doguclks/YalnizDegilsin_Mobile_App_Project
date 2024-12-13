@@ -1,8 +1,6 @@
 import 'package:app/pages/login.dart';
 import 'package:app/widgets/elevated_button_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:page_animation_transition/animations/fade_animation_transition.dart';
-import 'package:page_animation_transition/page_animation_transition.dart';
 
 class WhyPhoneNumberScreen extends StatelessWidget {
   @override
